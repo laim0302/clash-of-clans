@@ -2,17 +2,19 @@
   <div class="wrapper">
     <Header_comp />
     <div class="wrapper-content">
-      <router-view />
+      <section>
+        <div class="container">
+          <router-view />
+        </div>
+      </section>
     </div>
     <Footer_comp />
   </div>
 </template>
 
-
-
 <script>
-import Header_comp from '@/components/Header_comp.vue';
-import Footer_comp from '@/components/Footer_comp.vue';
+import Header_comp from "@/components/Header_comp.vue";
+import Footer_comp from "@/components/Footer_comp.vue";
 
 export default {
   components: {
@@ -22,5 +24,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

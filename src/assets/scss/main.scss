@@ -1,7 +1,7 @@
 // тк мы к ним обращаемся везде ниже
-@import 'utils/vars';
-@import 'utils/reset';
-@import 'utils/fonts';
+@import "utils/vars";
+@import "utils/reset";
+@import "utils/fonts";
 
 html {
   line-height: $mainLineHeight;
@@ -124,5 +124,6 @@ section,
   }
 }
 
-@import './common/_common';
-@import './helpers/_helpers';
+@import "./common/_common";
+@import "./helpers/_helpers";
+@import "./theme";
