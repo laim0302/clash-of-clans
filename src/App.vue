@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Header_comp />
+    <Header />
     <div class="wrapper-content">
       <section>
         <div class="container">
@@ -8,18 +8,18 @@
         </div>
       </section>
     </div>
-    <Footer_comp />
+    <Footer />
   </div>
 </template>
 
 <script>
-import Header_comp from "@/components/Header_comp.vue";
-import Footer_comp from "@/components/Footer_comp.vue";
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
-    Header_comp,
-    Footer_comp,
+    Header,
+    Footer,
   },
 };
 </script>

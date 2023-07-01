@@ -1,30 +1,20 @@
 <template>
   <carousel :settings1="settings1" :breakpoints="breakpoints">
     <slide class="card__wrapper" v-for="item in items" :key="item.id">
-      <Card_ui
+      <Card
         :name="`${item.lvl} lvl`"
         :title="item.title"
         :imgUrl="item.img"
-        :link="`${item.alias}`"
+        :link="`/item/${item.alias}`"
       >
         <template v-slot:body>
           {{ item.descr }}
         </template>
 
         <template v-slot:footer>
-          <CardFooter_ui :info="item.info" />
-          <!-- <div class="card-stats">
-            <div
-              v-for="(stat, index) in item.info"
-              :key="index"
-              class="one-third"
-            >
-              <div class="stat-value">{{ stat.value }}</div>
-              <div class="stat">{{ stat.title }}</div>
-            </div>
-          </div> -->
+          <CardFooter :info="item.info" />
         </template>
-      </Card_ui>
+      </Card>
     </slide>
 
     <template #addons>
@@ -35,16 +25,16 @@
 
 <script>
 import items from "@/seeders/items.js";
-import Card_ui from "@/components/UI/Card_ui";
-import CardFooter_ui from "@/components/UI/CardFooter_ui.vue";
+import Card from "@/components/UI/Card";
+import CardFooter from "@/components/UI/CardFooter.vue";
 
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 
 export default {
   components: {
-    Card_ui,
-    CardFooter_ui,
+    Card,
+    CardFooter,
     Carousel,
     Slide,
     Navigation,

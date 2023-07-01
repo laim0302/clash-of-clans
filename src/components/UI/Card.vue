@@ -13,8 +13,8 @@
         style="display: block; margin-top: 16px"
         :to="link"
       >
-        See more</router-link
-      >
+        See more
+      </router-link>
     </div>
     <slot name="footer"></slot>
   </div>

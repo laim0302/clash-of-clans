@@ -6,13 +6,8 @@
       <h1 style="color: #fff" class="title">{{ item.title }}</h1>
       <p>{{ item.descr }}</p>
 
-      <CardFooter_ui :info="item.info" />
-      <!-- <div class="card-stats">
-        <div v-for="(stat, index) in item.info" :key="index" class="one-third">
-          <div class="stat-value">{{ stat.value }}</div>
-          <div class="stat">{{ stat.title }}</div>
-        </div>
-      </div> -->
+      <CardFooter :info="item.info" />
+
       <div>
         <router-link to="/" class="btn btnPrimary">Back to home</router-link>
       </div>
@@ -22,7 +17,7 @@
 
 <script>
 import items from "@/seeders/items.js";
-import CardFooter_ui from "@/components/UI/CardFooter_ui.vue";
+import CardFooter from "@/components/UI/CardFooter.vue";
 
 export default {
   data() {
@@ -30,13 +25,20 @@ export default {
       item: null,
     };
   },
-  created() {
+  async created() {
     const alias = this.$route.params.itemAlias;
-    const item = items.find((el) => el.alias === alias);
+    const item = alias && items.find((el) => el.alias === alias);
+
+    if (!item) {
+      return await this.$router.push({ name: "404" });
+    }
+
     this.item = item;
+    // this.item = JSON.parse(JSON.stringify(item));
+    // this.isLoading = false;
   },
   components: {
-    CardFooter_ui,
+    CardFooter,
   },
 };
 </script>

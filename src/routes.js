@@ -4,10 +4,10 @@ import {
   // createWebHashHistory,
 } from "vue-router";
 
-import HomePage from "@/views/Home_view.vue";
-import AboutPage from "@/views/About_view.vue";
-import Page404 from "@/views/Page404_view.vue";
-import Item from "@/views/ItemAlias_view.vue";
+import HomePage from "@/views/HomePage.vue";
+import AboutPage from "@/views/AboutPage.vue";
+import Page404 from "@/views/Page404.vue";
+import Item from "@/views/ItemAliasPage.vue";
 
 const routeHistory = createWebHistory(process.env.BASE_URL);
 
@@ -23,21 +23,9 @@ const routes = [
     component: AboutPage,
   },
   {
-    path: "/:itemAlias",
+    path: "/item/:itemAlias",
     name: "itemAlias",
     component: Item,
-    beforeEnter: (to, from, next) => {
-      // console.log(Item);
-      // console.log("to: ", to);
-      // console.log("from: ", from);
-      // console.log("next: ", next);
-      if (Item) {
-        console.log(Item);
-        next();
-      } else {
-        next({ name: "404" });
-      }
-    },
   },
   // {
   //   path: "/:pathMatch(.*)*",
@@ -45,7 +33,7 @@ const routes = [
   //   component: Page404,
   // },
   {
-    path: "/:CatchAll(.*)",
+    path: "/:CatchAll(.*)*",
     name: "404",
     component: Page404,
   },
@@ -68,19 +56,5 @@ const router = createRouter({
   history: routeHistory,
   routes,
 });
-
-// router.beforeEach((to, from, next) => {
-//   console.log(Item);
-//   console.log("to: ", to);
-//   console.log("from: ", from);
-//   console.log("next: ", next);
-
-//   if (Item) {
-//     console.log("aaaaaaaaaaa");
-//     next();
-//   } else {
-//     console.log("xxxxxxxxxxxxxxx");
-//   }
-// });
 
 export default router;
